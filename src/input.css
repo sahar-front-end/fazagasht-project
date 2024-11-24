@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-white: 255 255 255;
+    --color-black: 0 0 0;
+    --color-gray: 107 114 128;
+    --color-lightwhite: 244 247 248;
+    --color-lightgray: 235 235 235;
+    --color-primary: 219 0 0;
+    --color-secondary: 78 76 74;
+  }
+
+  @font-face {
+    font-family: "IRANYekan";
+    src: url("../fonts/iranyekanwebregular.eot") format("eot"),
+      url("../fonts/iranyekanwebregular.ttf") format("ttf"),
+      url("../fonts/iranyekanwebregular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  .m-0-auto {
+    margin: 0 auto;
+  }
+
+  .w-300 {
+    width: 75rem;
+  }
+
+  .font-farsi {
+    font-family: "IRANYekan";
+  }
+
+  .rtl-direction {
+    direction: rtl;
+  }
+
+  .ltr-direction {
+    direction: ltr;
+  }
+
+  .active-moudle {
+    position: relative;
+    --tw-text-opacity: 1;
+    color: rgb(var(--color-black) / var(--tw-text-opacity));
+  }
+
+  .active-moudle::after {
+    content: "";
+    --tw-text-opacity: 1;
+    background-color: rgb(var(--color-primary) / var(--tw-text-opacity));
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    bottom: -21px;
+    left: 0;
+    right: 0;
+  }
+
+  .active-flight {
+    --tw-text-opacity: 1;
+    background-color: rgb(var(--color-primary) / var(--tw-text-opacity));
+    color: rgb(var(--color-white) / var(--tw-text-opacity));
+  }
+
+  .w-5 {
+    width: 1.3rem;
+  }
+
+  .h-5 {
+    height: 1.3rem;
+  }
+
+  .not-active-date input[type="text"] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(var(--color-lightgray) / var(--tw-bg-opacity));
+  }
+
+  .overlay::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(0, 0, 0, 0.5) 100%);
+    border-radius: 10px;
+  }
+
+  :-moz-focusring {
+    outline: none;
+  }
+
+  .article-list-container article:hover img {
+    --tw-blur: blur(4px);
+    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  }
+
+  .w-5-5 {
+    width: 95%;
+  }
+
+  .brightness-201 {
+    filter: brightness(0) invert(1);
+  }
+
+  @media not all and (min-width: 768px) {
+    .active-moudle::after {
+      bottom: 0;
+    }
+  }
+
+  .inset-x--full {
+    right: -100%;
+  }
+
+  .mob-menu-container-open {
+    background: rgba(0, 0, 0, .25);
+    bottom: 0 !important;
+  }
+
+  .mob-menu-container-open .mob-menu-content {
+    right: 0px;
+  }
+}
+
+@media not all and (min-width: 1024px)and (min-width: 1280px) {
+  .max-xl\:w-5-5 {
+    width: 95%;
+  }
+}

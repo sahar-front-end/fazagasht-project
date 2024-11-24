@@ -1,0 +1,95 @@
+<basis core="dbsource" source="basiscore" name="contact" lid="1" mid="5" usedforid="9160">
+   <member name="info" type="view" />
+</basis>
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>درباره ما</title>
+   <meta name="description" content="درباره آژانس مسافرتی فضاگشت"/>
+      <link rel="stylesheet" type="text/css" href="css/fazagasht-master.css">
+      <link rel="stylesheet" type="text/css" href="css/all.min.css">
+      <script type='text/javascript' src="js/jquery.min.js"></script>
+      <script type="text/javascript">
+         //js for search in site
+         $(document).ready(function() {
+             $("#search-site").click(function() {
+                 $(".icons").css("display", "none");http://185.44.36.230/domains/HTML-PAGES.bc?dmnid=4292&lid=1&mid=30&bcpage=
+                 $(".search").css("display", "block");
+             });
+             $(".close-search").click(function() {
+                 $(".icons").css("display", "block");
+                 $(".search").css("display", "none");
+             });
+         })
+         //fix menu
+         $(document).on("scroll", function() {
+            if ($(document).width() > 320) {
+                if ($(document).scrollTop() > 0) {
+                    $("#header").removeClass("large").addClass("small", 6000);
+                } else {
+                    $("#header").removeClass("small").addClass("large", 6000);
+                }
+            }
+         });
+         //back to top
+         $(document).ready(function() {
+            $("#toTop").hide();
+            $(function() {
+                $(window).scroll(function() {
+                    if ($(this).scrollTop() > 100) {
+                        $('#toTop').fadeIn();
+                    } else {
+                        $('#toTop').fadeOut();
+                    }
+                });
+                $('#toTop').click(function() {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+            });
+         });
+         
+         
+      </script>
+   </head>
+   <body class="st-effect-3">
+      <a href="/" id="toTop"><i class="fa fa-chevron-up"></i></a>
+      <div class="loginRegister"></div>
+      <basis core="call" file="header.inc"/>
+      <main>
+         <div class="breadcrumbs">
+            <div class="bc-main">
+               <ul>
+                  <li><a href="/">خانه</a></li>
+                  <li><span>درباره ما</span></li>
+               </ul>
+            </div>
+         </div>
+         <div id="show">
+            <div class="bc-main">
+               <div class="main-title">
+                  <h1>درباره آژانس مسافرتی فضا گشت </h1>
+                  <div class="title-separator-outer">
+                     <div class="title-separator"></div>
+                  </div>
+               </div>
+               <div class="fazagasht-info" style="width:100%">
+                  <basis core="view" datamembername="contact.info">
+                     <face filter="prpid=8004" level="1"> @child </face>
+                     <face filter="prpid=8004" level="2">
+                        <p> @largetext </p>
+                     </face>
+                  </basis>
+               </div>
+            </div>
+         </div>
+      </main>
+      <basis core="call" file="footer.inc"/>
+<script type='text/javascript' src="js/jquery.navgoco.js"></script><!--js for menu-->
+<script type='text/javascript' src="js/off-canvas.js"></script> <!--js for menu-->
+</body>
+</html>

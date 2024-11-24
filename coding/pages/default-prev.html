@@ -1,0 +1,896 @@
+<basis core="dbsource" source="basiscore" mid="20" name="tour" lid="1">
+  <member name="list1" type="list" link="tour.bc" propertyid="10000504,8077,8181,8076" catid="148155" perpage="9"
+      order="date desc" typeid="159" />
+  <member name="list2" type="list" link="tour.bc" propertyid="10000504,8077,8181,8076,77473" catid="148156" order="date desc"
+      typeid="159" />
+</basis>
+
+<basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="">
+  <member name="air-line" type="list" request="spelist" preview="" />
+</basis>
+
+<basis core="group" name="g1">
+
+  <basis core="inlinesource" name="listjoin">
+      <member name="airline" leftTblCol="tour.list1.prp_10000504" rightTblCol="list.air-line.name" joinType="leftjoin"
+          format="join" preview="" />
+  </basis>
+
+  <basis core="dbsource" source="basiscore" mid="1" name="db" lid="1">
+      <member name="article" type="tree" request="cat" parentid="0" order="ord" typeid="159" perpage="4" />
+  </basis>
+  <basis core="dbsource" source="basiscore" mid="1" name="db" lid="1">
+      <member name="article-list" type="list" link="article.bc" propertyid="7244,7248,7249" catid="148215" perpage="3"
+          order="date desc" typeid="159" />
+  </basis>
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+      <meta charset="utf-8">
+      <title>جستجو و رزرو اینترنتی بلیط هواپیما،تور مسافرتی،هتل | فضاگشت</title>
+      <meta name="description"
+          content="آژانس مسافرتی فضاگشت  با بیش از 25 سال سابقه ارائه دهنده خدمات خرید اینترنتی بلیط هواپیما داخلی و خارجی ، رزرو هتل ، تور مسافرتی ، بلیط استانبول ، بلیط دبی ، تور تایلند ، تور مالزی ، با پرواز ماهان ، پایین ترین نرخ بلیط" />
+      <meta name="keywords" content="فضا گشت | رزرواسیون آنلاین" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+      <link rel="stylesheet" type="text/css" href="css/fazagasht-master.css" />
+      <link rel="stylesheet" type="text/css" href="css/all.min.css" />
+      <link rel="stylesheet" type="text/css" href="/css/Basis_Calendar.css" />
+      <meta property="og:title" content="جستجو و رزرو اینترنتی بلیط هواپیما،تور مسافرتی،هتل | فضاگشت" />
+      <meta property="og:url" content="http://www.fazagasht.ir" />
+      <meta property="og:type" content="website" />
+      <meta property="og:description"
+          content="آژانس مسافرتی فضاگشت  با بیش از 25 سال سابقه ارائه دهنده خدمات خرید اینترنتی بلیط هواپیما داخلی و خارجی ، رزرو هتل ، تور مسافرتی ، بلیط استانبول ، بلیط دبی ، تور تایلند ، تور مالزی ، با پرواز ماهان ، پایین ترین نرخ بلیط" />
+      <meta property="og:image" content="http://www.fazagasht.ir/images/logo-fazagasht.png" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content="جستجو و رزرو اینترنتی بلیط هواپیما،تور مسافرتی،هتل | فضاگشت" />
+      <meta name="twitter:description"
+          content="آژانس مسافرتی فضاگشت  با بیش از 25 سال سابقه ارائه دهنده خدمات خرید اینترنتی بلیط هواپیما داخلی و خارجی ، رزرو هتل ، تور مسافرتی ، بلیط استانبول ، بلیط دبی ، تور تایلند ، تور مالزی ، با پرواز ماهان ، پایین ترین نرخ بلیط" />
+      <meta name="twitter:url" content="http://www.fazagasht.ir" />
+      <meta name="twitter:image" content="http://www.fazagasht.ir/images/logo-fazagasht.png" />
+      <script type='text/javascript' src="js/jquery.min.js"></script>
+      <script>
+          //js for tour tabs
+          var slideIndex = 1;
+          showSlides(slideIndex);
+
+          function plusSlides(n) {
+              showSlides(slideIndex += n);
+          }
+
+          function currentSlide(n) {
+              showSlides(slideIndex = n);
+          }
+
+          function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("demo");
+
+              if (n > slides.length) {
+                  slideIndex = 1
+              }
+              if (n < 1) {
+                  slideIndex = slides.length
+              }
+              for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";
+              }
+              slides[slideIndex - 1].style.display = "block";
+          }
+      </script>
+      <meta name="google-site-verification" content="mitV5YxIcBXrGrFpvUxY7FrMQKsKPWWh-WPIp2o3rRI" />
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152087766-1"></script>
+      <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+
+          gtag('config', 'UA-152087766-1');
+      </script>
+
+  </head>
+
+  <body class="st-effect-3">
+      <a href="/" id="toTop"><i class="fa fa-chevron-up"></i></a>
+      <div class="loginRegister"></div>
+      <basis core="call" file="header.inc" />
+      <main>
+          <div id="banner">
+              <div id="rezervation">
+                  <img data-src="/images/gif-loading.gif" class="imagiload lozad" />
+              </div>
+          </div>
+          <div class="mains">
+              <div class="bc-main">
+                  <!-- <div class="covid19">
+                   
+                      <p>با توجه به شیوع ویروس کرونا و شرایط اعلامی تمامی ایرلاین ها تا اطلاع ثانوی ، مسافرانی که
+                          اقدام به سفر به کشورهای مختلف از ایران با ترانزیت ( یا بدون ترانزیت ) می نمایند ، فقط با
+                          داشتن کارت اقامت یا پاسپورت همان کشور پذیرش می شوند و دارندگان ویزا اجازه انجام پرواز
+                          ندارند.</p>
+                  </div> -->
+              </div>
+          </div>
+          <div class="mains main-one">
+              <div class="bc-main">
+                  <div class="main-title">
+                      <h2>جدیدترین تورها</h2>
+                      <div class="title-separator-outer">
+                          <div class="title-separator"></div>
+                      </div>
+                  </div>
+                  <div class="tour-main">
+                      <basis core="list" datamembername="listjoin.airline">
+                          <face filter="tour.list1.link is null">
+                              <div class="mySlides">
+                                  <div class="img-tourmain">
+                                      <img class="lozad" data-src="@tour.list1.type_159" alt="@tour.list1.title"
+                                          width="840" height="470">
+                                  </div>
+                                  <div class="desc-tourmain"><a href="/tour.bc?id=@id">
+                                          <h2>@tour.list1.title</h2>
+                                          <p>@tour.list1.prp_8077</p>
+                                          <p>شروع قیمت از :@tour.list1.prp_8181</p>
+                                          <p>@tour.list1.prp_8076</p>
+                                          <p>ایرلاین : <img class="lozad" data-src="@list.air-line.pic" width="200"
+                                                  height="80" alt="@tour.list1.title"> </p>
+                                          <div class="more-tour">
+                                              <p class="mre">مشاهده تور</p>
+                                          </div>
+                                      </a>
+                                  </div>
+                              </div>
+                          </face>
+                          <face>
+                              <div class="mySlides">
+                                  <div class="img-tourmain">
+                                      <img class="lozad" data-src="@tour.list1.type_159" alt="@tour.list1.title"
+                                          width="840" height="470">
+                                  </div>
+                                  <div class="desc-tourmain"><a href="/@tour.list1.link">
+                                          <h2>@tour.list1.title</h2>
+                                          <p>@tour.list1.prp_8077</p>
+                                          <p>شروع قیمت از :@tour.list1.prp_8181</p>
+                                          <p>@tour.list1.prp_8076</p>
+                                          <p>ایرلاین : <img class="lozad" data-src="@list.air-line.pic" width="200"
+                                                  height="80" alt="@tour.list1.title"> </p>
+                                          <div class="more-tour">
+                                              <p class="mre">مشاهده تور</p>
+                                          </div>
+                                      </a>
+                                  </div>
+                              </div>
+                          </face>
+                      </basis>
+                      <a class="prv" onclick="plusSlides(-1)">❮</a>
+                      <a class="nxt" onclick="plusSlides(1)">❯</a>
+                      <div class="tab-tour">
+                          <ul id="tabs">
+                              <basis core="list" datamembername="listjoin.airline">
+                                  <face filter="RowNumber=1">
+                                      <li class="tabs on" onclick="currentSlide(1)">@tour.list1.title</li>
+                                  </face>
+                                  <face filter="RowNumber=2">
+                                      <li class="tabs" onclick="currentSlide(2)">@tour.list1.title</li>
+                                  </face>
+                                  <face filter="RowNumber=3">
+                                      <li class="tabs" onclick="currentSlide(3)">@tour.list1.title</li>
+                                  </face>
+                                  <face filter="RowNumber=4">
+                                      <li class="tabs" onclick="currentSlide(4)">@tour.list1.title</li>
+                                  </face>
+                                  <face filter="RowNumber=5">
+                                      <li class="tabs" onclick="currentSlide(5)">@tour.list1.title</li>
+                                  </face>
+                                  <face filter="RowNumber=6">
+                                      <li class="tabs" onclick="currentSlide(6)">@tour.list1.title</li>
+                                  </face>
+                                  <face filter="RowNumber=7">
+                                      <li class="tabs" onclick="currentSlide(7)">@tour.list1.title</li>
+                                  </face>
+                                  <face filter="RowNumber=8">
+                                      <li class="tabs" onclick="currentSlide(8)">@tour.list1.title</li>
+                                  </face>
+                                  <face filter="RowNumber=9">
+                                      <li class="tabs" onclick="currentSlide(9)">@tour.list1.title</li>
+                                  </face>
+                              </basis>
+                          </ul>
+                      </div>
+                      <div class="clr"></div>
+                  </div>
+                  <div class="clr"></div>
+              </div>
+          </div>
+          <div class="mains main-two">
+              <div class="bc-main">
+                  <div class="main-title">
+                      <h1>تور های فضاگشت</h1>
+                      <div class="title-separator-outer">
+                          <div class="title-separator"></div>
+                      </div>
+                  </div>
+                  <div id="demo2">
+                      <div id="owl-demo2" class="owl-carousel">
+                          <basis core="list" datamembername="tour.list2">
+                              <face filter="link is null">
+                                  <div class="col-tour">
+                                      <div class="inner-tour">
+                                          <div class="img-tour">
+                                              <a href="/@tour.bc?id=@id"><img class="lozad" data-src="/@type_159"
+                                                      width="370" height="220" alt="@title"></a>
+                                              <div class="trapezium"><span>@prp_77473</span></div>         
+                                          </div>
+                                          <div class="desc-tour">
+                                              <a href="/@tour.bc?id=@id"> @title</a>
+                                              <p class="tour-txt">شروع قیمت از :<span>@prp_8181</span></p>
+                                              <a href="/@tour.bc?id=@id" class="button">
+                                                  <div class="sim-button button4" data-text="مشاهده و خرید">
+                                                      <span>مشاهده و خرید</span>
+                                                  </div>
+                                              </a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </face>
+                              <face>
+                                  <div class="col-tour">
+                                      <div class="inner-tour">
+                                          <div class="img-tour">
+                                              <a href="/@link"><img class="lozad" data-src="/@type_159" width="370"
+                                                      height="220" alt="@title"></a>
+                                              <div class="trapezium"><span>@prp_77473</span></div>            
+                                          </div>
+                                          <div class="desc-tour">
+                                              <a href="/@link"> @title</a>
+                                              <p class="tour-txt">شروع قیمت از :<span>@prp_8181</span></p>
+                                              <a href="/@link" class="button">
+                                                  <div class="sim-button button4" data-text="مشاهده و خرید">
+                                                      <span>مشاهده و خرید</span>
+                                                  </div>
+                                              </a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </face>
+                          </basis>
+                      </div>
+                  </div>
+                  <div class="clr"></div>
+              </div>
+          </div>
+          <div class="mains main-three">
+              <div class="bc-main">
+                  <div class="main-title">
+                      <h2>مجله گردشگری فضاگشت</h2>
+                      <div class="title-separator-outer">
+                          <div class="title-separator"></div>
+                      </div>
+                  </div>
+                  <div class="article-boxes">
+                      <basis core="tree" dataMemberName="db.article" idCol="catid" parentidCol="ParentID"
+                          nullvalue="148215">
+                          <face filter="Ord=1and link is null">
+                              <div class="art-box-one">
+                                  <a href="/article-list.bc?catid=@catid">
+                                      <img class="lozad" data-src="/@image" width="585" height="290" alt="@title">
+                                      <p>@title</p>
+                                  </a>
+                              </div>
+                          </face>
+                          <face filter="Ord=1">
+                              <div class="art-box-one">
+                                  <a href="/@link">
+                                      <img class="lozad" data-src="/@image" width="585" height="290" alt="@title">
+                                      <p> @title</p>
+                                  </a>
+                              </div>
+                          </face>
+                      </basis>
+                      <basis core="tree" dataMemberName="db.article" idCol="catid" parentidCol="ParentID"
+                          nullvalue="148215">
+                          <layout>
+                              <div class="art-box-one">
+                                  @child
+                              </div>
+                          </layout>
+                          <face filter="Ord=2 and link is null">
+                              <div class="art-box-two">
+                                  <a href="/article-list.bc?catid=@catid">
+                                      <img class="lozad" data-src="/@image" width="585" height="150" alt="@title">
+                                      <p> @title</p>
+                                  </a>
+                              </div>
+                          </face>
+                          <face filter="Ord=2">
+                              <div class="art-box-two">
+                                  <a href="/@link">
+                                      <img class="lozad" data-src="/@image" width="585" height="150" alt="@title">
+                                      <p>@title</p>
+                                  </a>
+                              </div>
+                          </face>
+                          <face filter="Ord=3 and link is null">
+                              <div class="art-box-three">
+                                  <a href="/article-list.bc?catid=@catid">
+                                      <img class="lozad" data-src="/@image" width="585" height="150" alt="@title">
+                                      <p> @title</p>
+                                  </a>
+                              </div>
+                          </face>
+                          <face filter="Ord=3">
+                              <div class="art-box-three">
+                                  <a href="/@link">
+                                      <img class="lozad" data-src="/@image" width="585" height="150" alt="@title">
+                                      <p> @title</p>
+                                  </a>
+                              </div>
+                          </face>
+                      </basis>
+                      <basis core="tree" dataMemberName="db.article" idCol="catid" parentidCol="ParentID"
+                          nullvalue="148215">
+                          <face filter="Ord=4 and link is null">
+                              <div class="art-box-four">
+                                  <a href="/article-list.bc?catid=@catid">
+                                      <img class="lozad" data-src="/@image" width="585" height="290" alt="@title">
+                                      <p> @title</p>
+                                  </a>
+                              </div>
+                          </face>
+                          <face filter="Ord=4">
+                              <div class="art-box-four">
+                                  <a href="/@link">
+                                      <img class="lozad" data-src="/@image" width="585" height="290" alt="@title">
+                                      <p> @title</p>
+                                  </a>
+                              </div>
+                          </face>
+                      </basis>
+                      <basis core="tree" dataMemberName="db.article" idCol="catid" parentidCol="ParentID"
+                          nullvalue="148215">
+                          <layout>
+                              <div class="art-box-four">
+                                  @child
+                              </div>
+                          </layout>
+                          <face filter="Ord=5 and link is null">
+                              <div class="art-box-two">
+                                  <a href="/article-list.bc?catid=@catid">
+                                      <img class="lozad" data-src="/@image" width="585" height="150" alt="@title">
+                                      <p> @title</p>
+                                  </a>
+                              </div>
+                          </face>
+                          <face filter="Ord=5">
+                              <div class="art-box-two">
+                                  <a href="/@link">
+                                      <img class="lozad" data-src="/@image" width="585" height="150" alt="@title">
+                                      <p> @title</p>
+                                  </a>
+                              </div>
+                          </face>
+                          <face filter="Ord=6 and link is null">
+                              <div class="art-box-three">
+                                  <a href="/article-list.bc?catid=@catid">
+                                      <img class="lozad" data-src="/@image" width="585" height="150" alt="@title">
+                                      <p> @title</p>
+                                  </a>
+                              </div>
+                          </face>
+                          <face filter="Ord=6">
+                              <div class="art-box-three">
+                                  <a href="/@link">
+                                      <img class="lozad" data-src="/@image" width="585" height="150" alt="@title">
+                                      <p> @title</p>
+                                  </a>
+                              </div>
+                          </face>
+                      </basis>
+                      <basis core="tree" dataMemberName="db.article" idCol="catid" parentidCol="ParentID"
+                          nullvalue="148215">
+                          <face filter="Ord=7 and link is null">
+                              <div class="art-box-four">
+                                  <a href="/article-list.bc?catid=@catid">
+                                      <img class="lozad" data-src="/@image" width="585" height="290" alt="@title">
+                                      <p> @title</p>
+                                  </a>
+                              </div>
+                          </face>
+                          <face filter="Ord=7">
+                              <div class="art-box-four">
+                                  <a href="/@link">
+                                      <img class="lozad" data-src="/@image" width="585" height="290" alt="@title">
+                                      <p> @title</p>
+                                  </a>
+                              </div>
+                          </face>
+                      </basis>
+                  </div>
+              </div>
+          </div>
+          <div class="mains main-four">
+              <div class="bc-main">
+
+                  <div class="services">
+                      <div class="col-services">
+                          <div class="inner-services">
+                              <div class="img-services">
+                                  <a><img class="lozad" data-src="images/flight-srv.png" width="125" height="125"></a>
+                              </div>
+                              <div class="desc-services">
+                                  <a>
+                                      <h3>خرید بلیط هواپیما</h3>
+                                  </a>
+                                  <p class="service-txt">جامع ترین سایت خرید بلیط هواپیما خارجی و داخلی با تضمین
+                                      ارزانترین قیمت پرواز خارجی
+                                  </p>
+                              </div>
+                              <div class="clr"></div>
+                          </div>
+                      </div>
+                      <div class="col-services">
+                          <div class="inner-services">
+                              <div class="img-services">
+                                  <a><img class="lozad" data-src="images/hotel-srv.png" width="125" height="125"></a>
+                              </div>
+                              <div class="desc-services">
+                                  <a>
+                                      <h3>رزرو هتل خارجی</h3>
+                                  </a>
+                                  <p class="service-txt">کامل ترین سایت رزرو هتل خارجی با ارزانترین قیمت از بیش از 500
+                                      هزار هتل خارجی
+                                  </p>
+                              </div>
+                              <div class="clr"></div>
+                          </div>
+                      </div>
+                      <div class="col-services">
+                          <div class="inner-services">
+                              <div class="img-services">
+                                  <a><img class="lozad" data-src="images/warranty.png" width="125" height="125"></a>
+                              </div>
+                              <div class="desc-services">
+                                  <a>
+                                      <h3> گارانتی بهترین قیمت</h3>
+                                  </a>
+                                  <p class="service-txt">تضمین ارزان ترین قیمت ها با تخفیف های استثنایی و شگفت انگیز
+                                  </p>
+
+                              </div>
+                              <div class="clr"></div>
+                          </div>
+                      </div>
+                      <div class="col-services">
+                          <div class="inner-services">
+                              <div class="img-services">
+                                  <a><img class="lozad" data-src="images/poshtibani.png" width="125" height="125"></a>
+                              </div>
+                              <div class="desc-services">
+                                  <a>
+                                      <h3> خدمات و پشتیبانی</h3>
+                                  </a>
+                                  <p class="service-txt">سرعت در خدمات رسانی و پشتیبانی 24 ساعته حتی در روزهای تعطیل
+                                  </p>
+                              </div>
+                              <div class="clr"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="mains main-six">
+              <div class="bc-main">
+                  <div class="srv">
+                      <div class="main-title">
+                          <h3>آخرین مطالب گردشگری</h3>
+                          <div class="title-separator-outer">
+                              <div class="title-separator"></div>
+                          </div>
+                      </div>
+                      <basis core="list" datamembername="db.article-list">
+                          <face filter="link is null">
+                              <div class="col-artlist">
+                                  <a href="/article.bc?id=@id">
+                                      <div class="inner-artlist">
+                                          <div class="img-artlist">
+                                              <img class="lozad" data-src="/@type_159" width="370" height="370">
+                                          </div>
+                                          <div class="desc-artlist">
+                                              <h2>@title</h2>
+                                              <p class="lm-txt">@prp_7244</p>
+                                          </div>
+                                      </div>
+                                  </a>
+                              </div>
+                          </face>
+                          
+                          <face>
+                              <div class="col-artlist">
+                                  <a href="/@link">
+                                      <div class="inner-artlist">
+                                          <div class="img-artlist">
+                                              <img class="lozad" data-src="/@type_159" width="370" height="370">
+                                          </div>
+                                          <div class="desc-artlist">
+                                              <h2>@title</h2>
+                                              <p class="lm-txt">@prp_7244</p>
+                                          </div>
+                                      </div>
+                                  </a>
+                              </div>
+                          </face>
+                        
+                          <replace tagname="img"> <img class="replace-art" src="/@val2" alt="@val3"
+                                  style="display:none;margin:15px auto"> </replace>
+                      </basis>
+                  </div>
+              </div>
+          </div>
+          <div class="mains main-five">
+              <div class="bc-main">
+                  <div class="logos-wrapper">
+                      <div class="prev-next-holder">
+                          <div class="arrow">
+                              <a class="prev-btn" id="carousel-prev2"><span class="fa-angle-left"></span></a>
+                              <a class="next-btn" id="carousel-next2"><span class="fa-angle-right"></span></a>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div id="owl-carousel" class="owl-carousel">
+
+
+                              <section class="logo-item"><img class="lozad" data-src="images/lufthansa.png"
+                                      alt="lufthansa" />
+                                  <span> بلیط هواپیما لوفتهانزا </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/qatar-airways.png"
+                                      alt="qatar airways" />
+                                  <span> بلیط هواپیما قطر </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/emirates.png"
+                                      alt="emirates" />
+                                  <span> بلیط هواپیما امارات </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/air-france.png"
+                                      alt="air france" />
+                                  <span> بلیط هواپیما ایرفرانس </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/british-airways-1.png"
+                                      alt="british airways 1" />
+                                  <span> بلیط هواپیما بریتیش </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/turkish-airlines.png"
+                                      alt="turkish airlines" />
+                                  <span> بلیط هواپیما ترکیش </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/klm.png" alt="klm" />
+                                  <span> بلیط هواپیما کی ال ام </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/alitalia.png"
+                                      alt="alitalia" />
+                                  <span> بلیط هواپیما آلیتالیا </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/Atlas-global.png"
+                                      alt="Atlas global" />
+                                  <span> بلیط هواپیما اطلس گلوبال </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/fly-dubai.png"
+                                      alt="fly dubai" />
+                                  <span> بلیط هواپیما فلای دبی </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/malaysia-airlines.png"
+                                      alt="malaysia airlines" />
+                                  <span> بلیط هواپیما مالزی </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/azerbaijan-airlines.png"
+                                      alt="azerbaijan airlines" />
+                                  <span> بلیط هواپیما آذربایجان </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/iran-air.png"
+                                      alt="iran air" />
+                                  <span> بلیط هواپیما ایران ایر </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/Etihad-airways.png"
+                                      alt="Etihad airways" />
+                                  <span> بلیط هواپیما اتحاد </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/oman-air.png"
+                                      alt="oman air" />
+                                  <span> بلیط هواپیما عمان ایر </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/ukrain-international.png"
+                                      alt="ukrain international" />
+                                  <span> بلیط هواپیما اوکراین </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad"
+                                      data-src="images/thai-airways-international.png"
+                                      alt="thai airways international" />
+                                  <span> بلیط هواپیما تای </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/china-southern.png"
+                                      alt="china southern" />
+                                  <span> بلیط هواپیما چاینا ساترن </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/aegean-airlines.png"
+                                      alt="aegean airlines" />
+                                  <span> بلیط هواپیما ایژین </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad"
+                                      data-src="images/aeroflot-russian-airlines.png"
+                                      alt="aeroflot russian airlines" />
+                                  <span> بلیط هواپیما ایرفلوت راشین </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/mahan.png" alt="mahan" />
+                                  <span> بلیط هواپیما ماهان ایر </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/austrian-airlines.png"
+                                      alt="austrian airlines" />
+                                  <span> بلیط هواپیما استرین </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/pegasus-airlines.png"
+                                      alt="pegasus airlines" />
+                                  <span> بلیط هواپیما پگاسوس </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/s7-airlines.png"
+                                      alt="s7 airlines" />
+                                  <span> بلیط هواپیما ایرلاین اس 7 </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/kuwait-airways.png"
+                                      alt="kuwait airways" />
+                                  <span> بلیط هواپیما کویت </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/Qeshm-air.png"
+                                      alt="Qeshm air" />
+                                  <span> بلیط هواپیما قشم ایر </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/aseman.png"
+                                      alt="aseman" />
+                                  <span> بلیط هواپیما آسمان </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/salam-air.png"
+                                      alt="salam air" />
+                                  <span> بلیط هواپیما سلام ایر </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/iberia.png"
+                                      alt="iberia" />
+                                  <span> بلیط هواپیما ایبریا </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/qantas.png"
+                                      alt="qantas" />
+                                  <span> بلیط هواپیما کانتاس </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/easyjet.png"
+                                      alt="easyjet" />
+                                  <span> بلیط هواپیما ایزی جت </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/vueling-1.png"
+                                      alt="vueling 1" />
+                                  <span> بلیط هواپیما ویولینگ </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/Air-Asia.png"
+                                      alt="Air Asia" />
+                                  <span> بلیط هواپیما ایرایشیا </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad"
+                                      data-src="images/air-canada-airlines-logo.png" alt="air canada airlines logo" />
+                                  <span> بلیط هواپیما ایرکانادا </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/Buta-Airways.png"
+                                      alt="Buta Airways" />
+                                  <span> بلیط هواپیما بوتا </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/anadolu.png"
+                                      alt="anadolu" />
+                                  <span> بلیط هواپیما آنادولو جت </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/zagros.png"
+                                      alt="zagros" />
+                                  <span> بلیط هواپیما زاگرس </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/Sun-Express.png"
+                                      alt="Sun Express" />
+                                  <span> بلیط هواپیما سان اکسپرس </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/Onur-Air.png"
+                                      alt="Onur Air" />
+                                  <span> بلیط هواپیما اُنور ایر </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/ata-air.png"
+                                      alt="ata air" />
+                                  <span> بلیط هواپیما آتا </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/Iraqi-airways.png"
+                                      alt="Iraqi airways" />
+                                  <span> بلیط هواپیما عراقی </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/kish-air.png"
+                                      alt="kish air" />
+                                  <span> بلیط هواپیما کیش ایر </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/meraj-airlines.png"
+                                      alt="meraj airlines" />
+                                  <span> بلیط هواپیما معراج ایر </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/taban-air.png"
+                                      alt="taban air" />
+                                  <span> بلیط هواپیما تابان ایر </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/iran-air-tour.png"
+                                      alt="iran air tour" />
+                                  <span> بلیط هواپیما ایران ایرتور </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/caspian.png"
+                                      alt="caspian" />
+                                  <span> بلیط هواپیما کاسپین </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/taftan-air.png"
+                                      alt="taftan air" />
+                                  <span> بلیط هواپیما تفتان ایر </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/atrak-air.png"
+                                      alt="atrak air" />
+                                  <span> بلیط هواپیما اترک </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/pouya-air.png"
+                                      alt="pouya air" />
+                                  <span> بلیط هواپیما پویا ایر </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/sepehran-air.png"
+                                      alt="sepehran air" />
+                                  <span> بلیط هواپیما سپهران </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/varesh-air.png"
+                                      alt="varesh air" />
+                                  <span> بلیط هواپیما وارش </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/saha-air.png"
+                                      alt="saha air" />
+                                  <span> بلیط هواپیما ساها </span>
+                              </section>
+                              <section class="logo-item"><img class="lozad" data-src="images/karoon.png"
+                                      alt="karoon" />
+                                  <span> بلیط هواپیما کارون </span>
+                              </section>
+
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </main>
+      <!-- <div id="bk-popup"></div>
+    <div id="image-popup">
+       <div class="wrapper-popup">
+             <span id="close-popup"><i class="fa fa-times"></i></span>
+          <img src="images/popup-default.jpg" width="" height="" alt="">
+       </div>
+    </div>-->
+      <basis core="call" file="footer.inc" />
+
+      <script type='text/javascript' src="/js/jquery.navgoco.js"></script>
+      <script type='text/javascript' src="/js/off-canvas.js"></script>
+      <script type='text/javascript' src="/js/lozad.min.js"></script>
+      <!--js about menu-->
+      <script>
+          $(document).ready(function () {
+              $("#search-site").click(function () {
+                  $(".icons").css("display", "none");
+                  $(".search").css("display", "block");
+              });
+              $(".close-search").click(function () {
+                  $(".icons").css("display", "block");
+                  $(".search").css("display", "none");
+              });
+          })
+          $("#close-popup").click(function () {
+              $("#bk-popup").fadeOut();
+              $("#image-popup").fadeOut();
+          })
+          //fix menu
+          $(document).on("scroll", function () {
+              if ($(document).width() > 320) {
+                  if ($(document).scrollTop() > 0) {
+                      $("#header").removeClass("large").addClass("small", 6000);
+                  } else {
+                      $("#header").removeClass("small").addClass("large", 6000);
+                  }
+              }
+          });
+          //back to top
+          $(document).ready(function () {
+              $("#toTop").hide();
+              $(function () {
+                  $(window).scroll(function () {
+                      if ($(this).scrollTop() > 100) {
+                          $('#toTop').fadeIn();
+                      } else {
+                          $('#toTop').fadeOut();
+                      }
+                  });
+                  $('#toTop').click(function () {
+                      $('body,html').animate({
+                          scrollTop: 0
+                      }, 800);
+                      return false;
+                  });
+              });
+          });
+          //service text
+          $(document).ready(function () {
+              $(".service-txt").each(function (i) {
+                  len = $(this).text().length;
+                  if (len > 120) {
+                      $(this).text($(this).text().substr(0, 120) + '...');
+                  }
+              });
+
+              $(".lm-txt").each(function (i) {
+                  len = $(this).text().length;
+                  if (len > 90) {
+                      $(this).text($(this).text().substr(0, 90) + '...');
+                  }
+              });
+          });
+          //       $(function() {
+
+          //       //cache a reference to the tabs
+          //       var tabs = $('#tabs li');
+
+          //       //on click to tab, turn it on, and turn previously-on tab off
+          //       tabs.click(function() {
+          //           $(this).addClass('on').siblings('.on').removeClass('on');
+          //       });
+
+          //       //auto-rotate every 5 seconds
+          //       setInterval(function() {
+
+          //           //get currently-on tab
+          //           var onTab = tabs.filter('.on');
+
+          //           //click either next tab, if exists, else first one
+          //           var nextTab = onTab.index() < tabs.length - 1 ? onTab.next() : tabs.first();
+          //           nextTab.click();
+          //       }, 5000);
+          //   });
+          //js about owl-slide
+
+          $(document).ready(function () {
+              $("#owl-demo2").owlCarousel({
+                  autoPlay: 2000,
+                  navigation: true,
+                  navigationText: ['<span  class="fa-angle-left"></span>', '<span  class="fa-angle-right"></span>'],
+                  items: 4,
+                  itemsDesktop: [1199, 3],
+                  itemsDesktopSmall: [979, 2],
+                  itemsTablet: [768, 2],
+                  itemsTablet: [602, 1],
+                  itemsMobile: [479, 1]
+
+              });
+          });
+          $(document).ready(function () {
+              const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+              observer.observe();
+          });
+          $('#rezervation').load('/search_box.bc');
+          $(".trapezium span").each(function () {
+          if ($(this).text() == '') {
+              $(this).closest(".trapezium").hide()
+          } else {
+              $(this).text('ویژه نوروز')
+              $(this).closest(".trapezium").show()
+          }
+      })
+      </script>
+      <script type="text/javascript" src="/js/owl.carousel.js"></script>
+      <script type="text/javascript" src="/js/owl.carousel.min.js"></script>
+      <script type="text/javascript" src="/js/custom.js"></script>
+  </body>
+
+  </html>

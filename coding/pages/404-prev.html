@@ -1,0 +1,100 @@
+<basis core="dbsource" source="basiscore" mid="1" name="db" lid="1">
+  <member name="article"  type="tree" request="cat"  parentid="0"  order="ord" typeid="159" perpage="4"  />
+</basis>
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>خطای 404 فضا گشت</title>
+<meta name="description" content="خطای 404"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<link rel="stylesheet" type="text/css" href="css/fazagasht-master.css" />
+<link rel="stylesheet" type="text/css" href="css/all.min.css" />
+</head>
+<body class="st-effect-3">
+<a href="/" id="toTop"><i class="fa fa-chevron-up"></i></a>
+<div class="loginRegister"></div>
+<basis core="call" file="header.inc" />
+<main>
+  <!-- <div id="banner">
+    <div id="rezervation">
+      <img  data-src="/images/gif-loading.gif" class="imagiload lozad"/>
+    </div>
+  </div> -->
+<div class="fazagasht-404" style="padding:100px 0;">
+  <div class="bc-main">
+    <div class="main-title">
+      <h1>صفحه مورد نظر یافت نشد</h1>
+      <div class="title-separator-outer">
+        <div class="title-separator"></div>
+      </div>
+    </div>
+    <div style="text-align: center;">
+      <img src="images/404.png" class="img-404" alt="404" width="300" height="197">
+      </div>
+    <div class="clr"></div>
+  </div>
+</div>
+</main>
+<basis core="call" file="footer.inc" />
+<script type='text/javascript' src="js/jquery.min.js"></script>
+<script type='text/javascript' src="js/jquery.navgoco.js"></script>
+<script type='text/javascript' src="js/off-canvas.js"></script>
+<script src="js/lozad.min.js"></script>
+<!--js about menu-->
+<script>
+$(document).ready(function() {
+    $("#search-site").click(function() {
+        $(".icons").css("display", "none");
+        $(".search").css("display", "block");
+    });
+    $(".close-search").click(function() {
+        $(".icons").css("display", "block");
+        $(".search").css("display", "none");
+    });
+})
+$("#close-popup").click(function(){
+    $("#bk-popup").fadeOut();
+    $("#image-popup").fadeOut();
+})
+//fix menu
+$(document).on("scroll", function() {
+    if ($(document).width() > 320) {
+        if ($(document).scrollTop() > 0) {
+            $("#header").removeClass("large").addClass("small", 6000);
+        } else {
+            $("#header").removeClass("small").addClass("large", 6000);
+        }
+    }
+});
+//back to top
+$(document).ready(function() {
+    $("#toTop").hide();
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('#toTop').fadeIn();
+            } else {
+                $('#toTop').fadeOut();
+            }
+        });
+        $('#toTop').click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+});
+$(document).ready(function(){
+  const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+  observer.observe();
+});
+</script>
+<script type="text/javascript" src="js/owl.carousel.js"></script>
+<script type='text/javascript' src="js/jquery.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/custom.js"></script> 
+</body>
+</html>

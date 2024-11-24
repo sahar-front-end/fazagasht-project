@@ -1,0 +1,170 @@
+<basis core="dbsource" source="basiscore" name="contact" lid="1" mid="5" usedforid="9160">
+    <member name="info" type="view" />
+ </basis>
+ <!DOCTYPE html>
+ <html>
+    <head>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <title>تماس با ما</title>
+   <meta name="description" content="تماس با آژانس مسافرتی فضاگشت"/>
+       <link rel="stylesheet" type="text/css" href="css/fazagasht-master.css">
+       <link rel="stylesheet" type="text/css" href="css/all.min.css">
+       <script type='text/javascript' src="js/jquery.min.js"></script>
+       <script type="text/javascript">
+          //js for search in site
+          $(document).ready(function() {
+              $("#search-site").click(function() {
+                  $(".icons").css("display", "none");
+                  $(".search").css("display", "block");
+              });
+              $(".close-search").click(function() {
+                  $(".icons").css("display", "block");
+                  $(".search").css("display", "none");
+              });
+          })
+          //fix menu
+          $(document).on("scroll", function() {
+             if ($(document).width() > 320) {
+                 if ($(document).scrollTop() > 0) {
+                     $("#header").removeClass("large").addClass("small", 6000);
+                 } else {
+                     $("#header").removeClass("small").addClass("large", 6000);
+                 }
+             }
+          });
+          //back to top
+          $(document).ready(function() {
+             $("#toTop").hide();
+             $(function() {
+                 $(window).scroll(function() {
+                     if ($(this).scrollTop() > 100) {
+                         $('#toTop').fadeIn();
+                     } else {
+                         $('#toTop').fadeOut();
+                     }
+                 });
+                 $('#toTop').click(function() {
+                     $('body,html').animate({
+                         scrollTop: 0
+                     }, 800);
+                     return false;
+                 });
+             });
+          });
+          
+          
+       </script>
+    </head>
+    <body class="st-effect-3">
+       <a href="/" id="toTop"><i class="fa fa-chevron-up"></i></a>
+       <div class="loginRegister"></div>
+       <basis core="call" file="header.inc"/>
+       <main>
+          <div class="breadcrumbs">
+             <div class="bc-main">
+                <ul>
+                   <li><a href="/">خانه</a></li>
+                   <li><span>تماس با ما</span></li>
+                </ul>
+             </div>
+          </div>
+          <div id="show">
+             <div class="bc-main">
+                <div class="main-title">
+                   <h1>تماس با آژانس مسافرتی فضا گشت </h1>
+                   <div class="title-separator-outer">
+                      <div class="title-separator"></div>
+                   </div>
+                </div>
+                <div class="fazagasht-info">
+                   <basis core="view" datamembername="contact.info">
+                      <layout>
+                         <div class="boxes">
+                            <div class="right-box"> <img src="images/loc-icon.png" width="24" height="24" alt="location"> <span>آدرس:</span> </div>
+                            <div class="left-box">
+                               @child
+                            </div>
+                         </div>
+                      </layout>
+                      <face filter="prpid=7999">
+                         <p>@answer </p>
+                      </face>
+                   </basis>
+                   <basis core="view" datamembername="contact.info">
+                      <layout>
+                         <div class="boxes">
+                            <div class="right-box"> <img src="images/phone-icon.png" width="24" height="24" alt="phone"> <span>تلفن:</span> </div>
+                            @child 
+                         </div>
+                      </layout>
+                      <face filter="prpid=8000" level="1">
+                         <div class="left-box">@child</div>
+                      </face>
+                      <face filter="prpid=8000" level="2">
+                         <p>@answer</p>
+                      </face>
+                   </basis>
+                   <basis core="view" datamembername="contact.info">
+                      <layout>
+                         <div class="boxes">
+                            <div class="right-box"> <img src="images/fax.png" width="24" height="24" alt="phone"> <span>فکس:</span> </div>
+                            @child 
+                         </div>
+                      </layout>
+                      <face filter="prpid=8393" level="1">
+                         <div class="left-box">@child</div>
+                      </face>
+                      <face filter="prpid=8393" level="2">
+                         <p>@answer</p>
+                      </face>
+                   </basis>
+                   <basis core="view" datamembername="contact.info">
+                      <layout>
+                         <div class="boxes">
+                            <div class="right-box"> <img src="images/email-icon.png" width="24" height="24" alt="email"> <span>ایمیل:</span> </div>
+                            @child 
+                         </div>
+                      </layout>
+                      <face filter="prpid=8001" level="1">
+                         <div class="left-box">@child</div>
+                      </face>
+                      <face filter="prpid=8001" level="2">
+                         <p>@answer</p>
+                      </face>
+                   </basis>
+                   <basis core="view" datamembername="contact.info">
+                      <layout>
+                         <div class="boxes">
+                            <div class="right-box"> <img src="images/web-icon.png" width="24" height="24" alt="website"> <span>وبسایت:</span> </div>
+                            @child 
+                         </div>
+                      </layout>
+                      <face filter="prpid=8002" level="1">
+                         <div class="left-box">@child</div>
+                      </face>
+                      <face filter="prpid=8002" level="2">
+                         <p>@answer</p>
+                      </face>
+                   </basis>
+                </div>
+                <div class="form-contact">
+                <p>جهت ارتباط با فضاگشت مشخصات خود را وارد کنید</p>
+                    <form action="/contact-form.bc" method="POST">
+                        <input type="text" name="name" placeholder="نام و نام خانوادگی" required>
+                        <input name="email" type="email" placeholder="ایمیل" required>
+                        <input name="mobile" type="tel" placeholder="شماره تماس">
+                        <_textarea name="description" placeholder="توضیحات" ></_textarea>
+                        <button type="submit"><i class="fa fa-arrow-left"></i>ارسال</button>
+                    <div class="clr"></div>
+                    </form>
+                </div>
+             </div>
+          </div>
+ <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.352764213372!2d51.369848415312525!3d35.7175418801859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e013ceb74be61:0x2b59e834501b6b66!2z2KLamNin2YbYsyDZh9mI2KfZvtuM2YXYp9uM24wg2YHYttin2q_YtNiq!5e0!3m2!1sen!2s!4v1564817609376!5m2!1sen!2s" width="1583" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+       </main>
+       <basis core="call" file="footer.inc"/>
+ <script type='text/javascript' src="js/jquery.navgoco.js"></script><!--js for menu-->
+ <script type='text/javascript' src="js/off-canvas.js"></script> <!--js for menu-->
+    </body>
+ </html>

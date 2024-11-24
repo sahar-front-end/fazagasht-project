@@ -1,0 +1,587 @@
+<basis core="dbsource" source="basiscore" name="db" mid="20" lid="1" usedforid="[##cms.query.id##]">
+  <member name="relateart" type="list" perpage="10" typeid ="159" link="article.bc" propertyid="7246,7244,7249" blgid="218" order="ord"/>
+  <member name="showpro" type="view"/>
+  <member name="navigationt" type="tree" request="navigationcat"/>
+  <member name="relatetour" type="list"  blgid="18" propertyid="8070,8076,8181,8077,10000504" typeid="159" perpage="3" order="ord"/>
+  <member name="tourdata" type="view" request="rdfa"/>
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
+  <member name="airline" type="list" request="spelist"/>
+</basis>
+<basis core="dbsource" source="media" lid="1" name="db" usedforid="[##cms.query.id##]" sourcemid="product" >
+  <member type="list" name="gallery" format="4" order="ord"/>
+  <member name="pdf" type="list" format="pdf"/>
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="20" lid="1" usedforid="[##cms.query.id##]">
+  <member name="proinfo" type="view" />
+</basis>
+<basis  core="external.fly.ws" source="cmsDbService2" name="db" procedurename="dbsource" >
+            <member  name="inventory"   method="cms"  query='{
+"name": "db",
+"mid": "20",
+ "member":[{
+ "type":"list",
+ "name": "q",
+ "request": "inventoryview",
+ "pid":"[##cms.query.id##]",
+ "pagename":"hotel.bc", 
+  
+  }] }' />
+            </basis>
+<basis core="group" name="list">
+<basis core="inlinesource" name="list">
+  <member name="inventoryjson" format="json" preview="">{"root":[##db.inventory.result##]}</member>
+</basis>
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>[##cms.seo.title##]</title>
+     <meta name="description" content="[##cms.seo.description##]"/>
+     <link rel="stylesheet" type="text/css" href="css/fazagasht-master.css">
+     <link rel="stylesheet" type="text/css" href="css/all.min.css">
+     <link rel="stylesheet" href="css/table.css" type="text/css">
+     <link rel="stylesheet" href="css/gallery.css" type="text/css">
+     <script type='text/javascript' src="js/jquery.min.js"></script>
+     <script type="text/javascript">
+        //js for search in site
+        $(document).ready(function() {
+            $("#search-site").click(function() {
+                $(".icons").css("display", "none");
+                $(".search").css("display", "block");
+            });
+            $(".close-search").click(function() {
+                $(".icons").css("display", "block");
+                $(".search").css("display", "none");
+            });
+        })
+        //fix menu
+        $(document).on("scroll", function() {
+           if ($(document).width() > 320) {
+               if ($(document).scrollTop() > 0) {
+                   $("#header").removeClass("large").addClass("small", 6000);
+               } else {
+                   $("#header").removeClass("small").addClass("large", 6000);
+               }
+           }
+        });
+        //back to top
+        $(document).ready(function() {
+           $("#toTop").hide();
+           $(function() {
+               $(window).scroll(function() {
+                   if ($(this).scrollTop() > 100) {
+                       $('#toTop').fadeIn();
+                   } else {
+                       $('#toTop').fadeOut();
+                   }
+               });
+               $('#toTop').click(function() {
+                   $('body,html').animate({
+                       scrollTop: 0
+                   }, 800);
+                   return false;
+               });
+           });
+        });
+        //service text
+        $(document).ready(function(){
+        $(".lm-txt").each(function(i){
+        len=$(this).text().length;
+        if(len>90){
+        $(this).text($(this).text().substr(0,90)+'...');
+        }
+        });
+        });
+        
+     </script>
+  </head>
+  <body class="st-effect-3">
+     <a href="/" id="toTop"><i class="fa fa-chevron-up"></i></a>
+     <div class="loginRegister"></div>
+     <basis core="call" file="header.inc"/>
+     <main>
+        <div class="breadcrumbs">
+           <div class="bc-main">
+              <ul>
+                 <li><a href="/">خانه</a></li>
+                 <basis core="print" datamembername="db.navigationt" >
+                    <face filter="parentcatid<>48047">
+                       <li> <a href="/@link">@title</a> </li>
+                    </face>
+                    <face filter="link is null and parentcatid<>48047" >
+                       <li> <a href="/tour-list.bc?catid=@parentcatid">@title</a> </li>
+                    </face>
+                 </basis>
+                 <basis core="print" datamembername="db.showpro" >
+                    <face filter="typeid=150" >
+                       <li> <span itemprop="@vocabulary">@answer</span> </li>
+                    </face>
+                 </basis>
+              </ul>
+           </div>
+        </div>
+        <div id="show">
+             <basis core="print" datamembername="db.tourdata">
+               <face>
+                 <div class="bc-main" itemprop="@vocabulary" itemscope itemtype="@link">
+               </face>
+             </basis>
+              <div class="main-title">
+                 <basis core="view" datamembername="db.proinfo" >
+                   <face filter="typeid=150">
+                     <h1 itemprop="@vocabulary">@answer</h1>
+                   </face>
+                 </basis>
+                 <div class="title-separator-outer">
+                    <div class="title-separator"></div>
+                 </div>
+                 <div class="tpackage-download">
+                  <a href="/pdf-package.bc?id=[##cms.query.id##]" target="_blank" target="_blank">
+                  <span> دانلود پکیج </span>
+                  <section>
+                  <p><i class="fa fa-file-pdf"></i> </p>
+                  </section>
+                  </a>
+                  </div>
+              </div>
+              <div class="tour-table">
+                 <div class="title">
+                     <div class="hotel-tlt">
+                    <h2 class="tlt">اطلاعات هتل</h2>
+                    <div class="title-separator-outer">
+                       <div class="title-separator"></div>
+                    </div>
+                   </div>
+                    <div class="tpackage-download">
+                      <a href="/pdf-package.bc?id=[##cms.query.id##]" target="_blank" >
+                      <span> دانلود پکیج </span>
+                      <section>
+                           <p><i class="fa fa-file-pdf"></i>  </p>
+                      </section>
+                    </a>
+                   </div>
+                 </div>
+                 <div class="hotel-tbl">
+                    <basis core="tree" datamembername="list.inventoryjson" idcol="id" parentidcol="parentid" nullvalue="null">
+                       <layout>
+                          <table class="tblhotelfield">
+                             <thead>
+                                <tr class="tbl-head">
+                                   <td class="first-th">
+                                      <table class="hotel-info">
+                                         <tr>
+                                            <td class="tbl-th11">نام هتل</td>
+                                            <td class="tbl-th12">درجه هتل</td>
+                                            <td class="tbl-th13">خدمات هتل</td>
+                                         </tr>
+                                      </table>
+                                   </td>
+                                   
+                                   <td class="tbl-th2">هر نفر در اتاق دوتخته</td>
+                                   <td class="tbl-th3">هر نفر در اتاق یک تخته</td>
+                                   <td class="tbl-th8">هر نفر در اتاق سه تخته</td>
+                                   <td class="tbl-th4">6 تا 12 سال با تخت</td>
+                                   <td class="tbl-th5">2 تا 6 سال بدون تخت</td>
+                                   <td class="tbl-th6">موقعیت</td>
+                                   <td class="tbl-th7">توضیحات</td>
+                                </tr>
+                             </thead>
+                             @child
+                          </table>
+                       </layout>
+                       <face filter="parentid in ('1')">
+                          <tr class="tbl-body"> @child </tr>
+                       </face>
+                       <face filter="field in ('hotelinfo')">
+                          <td class="first-th">
+                             <table class="hotel-info">
+                                <tbody>
+                                   @child
+                                </tbody>
+                             </table>
+                          </td>
+                       </face>
+                       <face filter="field in ('hotel')">
+                          <tr>
+                             <td class="tbl-th11">
+                                <div class="td-hotel"> @child </div>
+                             </td>
+                          </tr>
+                       </face>
+                       <face filter="field in ('hotelid')">
+                          <input type="hidden" class="loc-input" value="@value" />
+                       </face>
+                       <face filter="field in ('hotelname')">
+                          <section class="part1"><a href="" target="_blank" class="name-link">@value</a> </section>
+                       </face>
+                       <face filter="field in ('star')">
+                          <section class="part2"> <img src="images/@value-star-rating.png" alt="@value" width="70" height="15"> </section>
+                       </face>
+                       <face filter="field in ('service') and type = 'scalar.string'">
+                          <section class="part3"> <span>@value</span> </section>
+                       </face>
+                       <face filter="field in ('doublecost') and type ='array'">
+                          <td class="tbl-th2 cost">@child</td>
+                       </face>
+                       <face filter="field in ('singlecost') and type ='array'">
+                          <td class="tbl-th3 cost">@child</td>
+                       </face>
+                       <face filter="field in ('triplecost') and type ='array'">
+                          <td class="tbl-th8 cost">@child</td>
+                       </face>
+                       <face filter="field in ('childwithbed') and type ='array'">
+                          <td class="tbl-th4 cost">@child</td>
+                       </face>
+                       <face filter="field in ('childwithoutbed') and type ='array'">
+                          <td class="tbl-th5 cost">@child</td>
+                       </face>
+                       <face filter="field in ('locationf')">
+                          <td class="tbl-th6">@value</td>
+                       </face>
+                       <face filter="field in ('descriptionf')">
+                          <td class="tbl-th7">@value</td>
+                       </face>
+                       <face filter="field in ('triplecost','doublecost','singlecost','childwithbed','childwithoutbed') and type ='object'">
+                          @child 
+                       </face>
+                       <face filter="field in ('triplecostf','doublecostf','singlecostf','childwithbedf','childwithoutbedf')"> <span class="price2 cost">@value</span> </face>
+                       <face filter="field in ('tripleunit','doubleunit','childwithoutbedunit','childwithbedunit','singleunit')"> <span>@value</span> </face>
+                       <face filter="type in ('array','object')"> @child </face>
+                    </basis>
+                    <div class="clr"></div>
+                 </div>
+                 <basis core="tree" datamembername="list.inventoryjson" idcol="id" parentidcol="parentid" nullvalue="null">
+                    <layout > @child </layout>
+                    <face filter="parentid in ('1')">
+                       <div class="hotel-section"> @child </div>
+                    </face>
+                    <face filter="field in ('hotel')"> @child </face>
+                    <face filter="field in ('hotelid')">
+                       <input type="hidden" class="loc-input" value="@value" />
+                    </face>
+                    <face filter="field in ('hotelname')">
+                       <div class="mobile-hotel"> <a href="" target="_blank" class="name-link">@value</a> </div>
+                    </face>
+                    <face filter="field in ('star')">
+                       <div class="mobile-hotel-info">
+                          <section class="hotel-qu"> درجه هتل </section>
+                          <section class="hotel-ans"> <img src="images/@value-star-rating.png" alt="@value" width="53" height="12"> </section>
+                          <div class="clr"></div>
+                       </div>
+                    </face>
+                    <face filter="field in ('service') and type = 'scalar.string'">
+                       <div class="mobile-hotel-info">
+                          <section class="hotel-qu">خدمات</section>
+                          <section class="hotel-ans"> @value </section>
+                          <div class="clr"></div>
+                       </div>
+                    </face>
+                    <face filter="field in ('doublecost') and type ='array'">
+                       <div class="mobile-hotel-info">
+                          <section class="hotel-qu"> نرخ اتاق دو تخته</section>
+                          <section class="hotel-ans">@child </section>
+                          <div class="clr"></div>
+                       </div>
+                    </face>
+                    <face filter="field in ('singlecost') and type ='array'">
+                       <div class="mobile-hotel-info">
+                          <section class="hotel-qu"> نرخ اتاق یک تخته</section>
+                          <section class="hotel-ans"> @child</section>
+                          <div class="clr"></div>
+                       </div>
+                    </face>
+                    <face filter="field in ('triplecost') and type ='array'">
+                       <div class="mobile-hotel-info">
+                          <section class="hotel-qu"> نرخ اتاق سه تخته</section>
+                          <section class="hotel-ans"> @child</section>
+                          <div class="clr"></div>
+                       </div>
+                    </face>
+                    <face filter="field in ('childwithbed') and type ='array'">
+                       <div class="mobile-hotel-info">
+                          <section class="hotel-qu"> نرخ کودک 6 تا 12 سال</section>
+                          <section class="hotel-ans"> @child </section>
+                          <div class="clr"></div>
+                       </div>
+                    </face>
+                    <face filter="field in ('childwithoutbed') and type ='array'">
+                       <div class="mobile-hotel-info">
+                          <section class="hotel-qu">نرخ کودک 2 تا 6 سال</section>
+                          <section class="hotel-ans"> @child </section>
+                          <div class="clr"></div>
+                       </div>
+                    </face>
+                    <face filter="field in ('locationf')">
+                       <div class="mobile-hotel-info">
+                          <section class="hotel-qu">موقعیت مکانی </section>
+                          <section class="hotel-ans">@value</section>
+                          <div class="clr"></div>
+                       </div>
+                    </face>
+                    <face filter="field in ('descriptionf')">
+                       <div class="mobile-hotel-info">
+                          <section class="hotel-qu"> توضیحات</section>
+                          <section class="hotel-ans">@value </section>
+                          <div class="clr"></div>
+                       </div>
+                    </face>
+                    <face filter="field in ('triplecost','doublecost','singlecost','childwithbed','childwithoutbed') and type ='object'">
+                       <p> @child </p>
+                    </face>
+                    <face filter="field in ('triplecostf','doublecostf','singlecostf','childwithbedf','childwithoutbedf')"> <span class="price2 cost">@value</span> </face>
+                    <face filter="field in ('tripleunit','doubleunit','childwithoutbedunit','childwithbedunit','singleunit')"> <span>@value</span> </face>
+                    <face filter="type in ('array','object')"> @child </face>
+                 </basis>
+              </div>
+              <div class="tour-information">
+                 <div class="title">
+                    <h2 class="tlt">اطلاعات تور</h2>
+                    <div class="title-separator-outer">
+                       <div class="title-separator"></div>
+                    </div>
+                 </div>
+                 <basis core="group" name="airline">
+                    <basis core="inlinesource" name="joining">
+                       <member name="listAirline" lefttblcol="db.showpro.Answer" righttblcol="list.airline.name" format="join" jointype="leftjoin"/>
+                    </basis>
+                    <basis core="print" datamembername="joining.listAirline">
+                       <layout>
+                          <div class="tour-infooo">
+                             <section class="qu"> <span>ایرلاین</span> </section>
+                             <section class="ans">
+                                <p> @child </p>
+                             </section>
+                             <div class="clr"></div>
+                          </div>
+                       </layout>
+                       <face filter="db.showpro.prpID=10000504"> <img src="/@list.airline.pic" width="100" height="55" alt="@list.airline.name"> </face>
+                    </basis>
+                 </basis>
+                 <basis core="view" datamembername="db.showpro" >
+                    <face level="1" filter="prpid not in (8185,8186,8187,54281,8084,8181)">
+                       <div class="tour-infooo">
+                          <section class="qu"> <span> @question </span> </section>
+                          <section class="ans">
+                             <p> @child </p>
+                          </section>
+                          <div class="clr"></div>
+                       </div>
+                    </face>
+                    <face level="2" >
+                       <p><span itemprop="@vocabulary">@answer</span></p>
+                    </face>
+                 </basis>
+                 <basis core="view" datamembername="db.showpro" >
+                    <face level="1" filter="prpid=8181">
+                       <div class="tour-infooo">
+                          <section class="qu"> <span> @question </span> </section>
+                          <section class="ans price-b"> @child </section>
+                          <div class="clr"></div>
+                       </div>
+                    </face>
+                    <face level="2" >
+                       <p><span itemprop="@vocabulary">@answer</span></p>
+                    </face>
+                 </basis>
+                 <basis core="view" datamembername="db.showpro" >
+                    <face level="1" filter="prpid=8084">
+                       <div class="tour-infooo">
+                          <section class="qu"> <span> @question </span> </section>
+                          <section class="ans"> <span>@child </span> </section>
+                          <div class="clr"></div>
+                       </div>
+                    </face>
+                    <face level="2" >
+                       <p><span itemprop="@vocabulary">@text : </span> <span itemprop="@vocabulary">@largetext</span> </p>
+                    </face>
+                 </basis>
+              </div>
+           </div>
+           <div class="main-related">
+              <div class="bc-main">
+                 <div class="tab-related">
+                    <ul>
+                       <li class="gallery-tab"> <img src="images/gallery-icon.png" width="64" height="64" alt=""> <span>گالری</span></li>
+                       <li class="tour-tab"> <img src="images/tour-icon.png" width="64" height="64" alt=""> <span>تور مرتبط</span></li>
+                       <li class="article-tab"> <img src="images/article-icon.png" width="64" height="64" alt=""> <span>مقاله مرتبط</span></li>
+                    </ul>
+                 </div>
+                 <div class="relateds">
+                    <div id="t-gallery">
+                       <div class="gallery-item">
+                          <div class="title">
+                             <h2>گالری تصاویر</h2>
+                          </div>
+                          <div id="Gallery-box">
+                             <div class="Border"></div>
+                             <div id="Gallery">
+                                <basis core="print" datamembername="db.gallery">
+                                   <face filter="RowNumber=1">
+                                      <div id="Full-Gallery"><img src="/@largeIMG" width="820" height="480" alt="@name"></div>
+                                   </face>
+                                </basis>
+                                <basis core="print" datamembername="db.gallery">
+                                   <layout>
+                                      <div id="Thumb-Gallery">
+                                         <div id="main">
+                                            <ul class="gallery clearfix">
+                                               @Child
+                                               <div class="clr"></div>
+                                            </ul>
+                                         </div>
+                                      </div>
+                                   </layout>
+                                   <face>
+                                      <li> <a href="/@largeIMG" rel="prettyPhoto[gallery1]"> <img src="/@largeIMG" width="80" height="50" alt="" /></a></li>
+                                   </face>
+                                </basis>
+                                <div class="clr"></div>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                    <div id="t-tour" class="tours-list">
+                       <div class="title">
+                          <h2>تور مرتبط</h2>
+                       </div>
+                       <basis core="list" datamembername="db.relatetour">
+                          <layout>
+                             @child
+                          </layout>
+                          <else-layout>
+                             <p class="else-layout">در حال حاظر تور مرتبط وجود ندارد</p>
+                          </else-layout>
+                          <face filter="link is null">
+                          <face filter="link is null">
+                             <div class="col-tour">
+                                <div class="inner-tour">
+                                   <div class="img-tour">
+                                      <a href="/@tour.bc?id=@id"><img src="/@type_159" width="370" height="220" alt="@title"></a>
+                                   </div>
+                                   <div class="desc-tour">
+                                      <a href="/@tour.bc?id=@id"> @title</a>
+                                      <p class="tour-txt">شروع قیمت از :<span>@prp_8181</span></p>
+                                      <a class="button">
+                                         <div class="sim-button button4" data-text="مشاهده و خرید">
+                                            <span>مشاهده و خرید</span>
+                                         </div>
+                                      </a>
+                                   </div>
+                                </div>
+                             </div>
+                          </face>
+                          <face>
+                             <div class="col-tour">
+                                <div class="inner-tour">
+                                   <div class="img-tour">
+                                      <a href="/@link"><img src="/@type_159" width="370" height="220" alt="@title"></a>
+                                   </div>
+                                   <div class="desc-tour">
+                                      <a href="/@link"> @title</a>
+                                      <p class="tour-txt">شروع قیمت از :<span>@prp_8181</span></p>
+                                      <a class="button">
+                                         <div class="sim-button button4" data-text="مشاهده و خرید">
+                                            <span>مشاهده و خرید</span>
+                                         </div>
+                                      </a>
+                                   </div>
+                                </div>
+                             </div>
+                          </face>
+                       </basis>
+                    </div>
+                    <div id="t-article">
+                       <div class="title">
+                          <h2>مقاله مرتبط</h2>
+                       </div>
+                       <basis core="list" datamembername="db.relateart">
+                          <layout>
+                             @child
+                          </layout>
+                          <else-layout>
+                             <p class="else-layout">در حال حاظر مقاله مرتبط وجود ندارد</p>
+                          </else-layout>
+                          <face filter="link is null" >
+                             <div class="col-artlist">
+                                <a href="/article.bc?id=@id">
+                                   <div class="inner-artlist">
+                                      <div class="img-artlist">
+                                         <img src="/@type_159">
+                                      </div>
+                                      <div class="desc-artlist">
+                                         <h2>@title</h2>
+                                         <p class="lm-txt">@prp_7244</p>
+                                      </div>
+                                   </div>
+                                </a>
+                             </div>
+                          </face>
+                          <face>
+                             <div class="col-artlist">
+                                <a href="/@link">
+                                   <div class="inner-artlist">
+                                      <div class="img-artlist">
+                                         <img src="/@type_159">
+                                      </div>
+                                      <div class="desc-artlist">
+                                         <h2>@title</h2>
+                                         <p class="lm-txt">@prp_7244</p>
+                                      </div>
+                                   </div>
+                                </a>
+                             </div>
+                          </face>
+                       </basis>
+                    </div>
+                 </div>
+                 <div class="clr"></div>
+              </div>
+           </div>
+        </div>
+     </main>
+<basis core="call" file="footer.inc"/>
+<script type='text/javascript' src="js/jquery.min.js"></script>
+<script type='text/javascript' src="js/jquery.navgoco.js"></script>
+<script type='text/javascript' src="js/off-canvas.js"></script>
+<!--js about menu-->
+<script type="text/javascript" src="js/gallery.js"></script> <!--js about gallery--> 
+<script type="text/javascript">
+
+ $(document).ready(function(){
+ $("a[rel^='prettyPhoto']").prettyPhoto();
+ });
+        
+</script> 
+<script type="text/javascript">
+$(function(){
+ $(".gallery-tab").click(function()
+ {
+  $("#t-gallery").fadeIn();
+  $("#t-tour").fadeOut() ;
+  $("#t-article").fadeOut() ;
+ });
+ $(".tour-tab").click(function()
+ {
+   $("#t-gallery").fadeOut() ;
+  $("#t-tour").fadeIn();
+  $("#t-article").fadeOut() ;
+ });
+ $(".article-tab").click(function()
+ {
+  $("#t-gallery").fadeOut() ;
+  $("#t-tour").fadeOut() ;
+  $("#t-article").fadeIn();
+ });
+});
+
+$(document).ready(function(){
+ let tourTitle = $(".main-title h1").text();
+ $("#Gallery img").each(function(){
+   $(this).attr("alt",tourTitle);
+ });
+});
+</script>
+</body>
+</html>

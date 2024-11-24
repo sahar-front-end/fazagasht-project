@@ -1,0 +1,315 @@
+<basis core="dbsource" source="basiscore" name="db" lid="1" request="seo" >
+   <member name="list" type="list" request="product"  id="[##cms.query.id##]" />
+</basis>
+<basis core="dbsource" source="basiscore" name="show" lid="1" mid="1" usedforid="[##cms.query.id##]">
+   <member name="navigation" type="tree" request="navigationcat" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.id##]">
+   <member name="view" type="view" />
+   <member name="related-tour" type="list"  blgid="221" propertyid="10000504,8077,8181,8076" typeid="159" link="tour.bc"  perpage="3" />
+   <member name="related-article" type="list" blgid="222"  link="article.bc" propertyid="7244,8190" perpage="3"  typeid="159"/>
+   <member name="artdata" type="view" request="rdfa"/>
+</basis>
+<basis core="dbsource" source="media" name="db" lid="1" usedforid="[##cms.query.id##]" sourcemid="article">
+   <member name="gallery" type="list" format="4" perpage="10" />
+   <member name="pdf" type="list" format="pdf" />
+</basis>
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <basis core="print" datamembername="db.list">
+         <face>
+            <title>[##cms.seo.title|db.list.title##]</title>
+            <meta name="description" content="[##cms.seo.description|db.list.description##]"/>
+         </face>
+      </basis>
+      <link rel="stylesheet" type="text/css" href="css/fazagasht-master.css">
+      <link rel="stylesheet" type="text/css" href="css/all.min.css">
+      <link rel="stylesheet" href="css/gallery.css" type="text/css">
+      <script type='text/javascript' src="js/jquery.min.js"></script>
+      <script type="text/javascript">
+         //js for search in site
+         $(document).ready(function() {
+             $("#search-site").click(function() {
+                 $(".icons").css("display", "none");
+                 $(".search").css("display", "block");
+             });
+             $(".close-search").click(function() {
+                 $(".icons").css("display", "block");
+                 $(".search").css("display", "none");
+             });
+         })
+         //fix menu
+         $(document).on("scroll", function() {
+            if ($(document).width() > 320) {
+                if ($(document).scrollTop() > 0) {
+                    $("#header").removeClass("large").addClass("small", 6000);
+                } else {
+                    $("#header").removeClass("small").addClass("large", 6000);
+                }
+            }
+         });
+         //back to top
+         $(document).ready(function() {
+            $("#toTop").hide();
+            $(function() {
+                $(window).scroll(function() {
+                    if ($(this).scrollTop() > 100) {
+                        $('#toTop').fadeIn();
+                    } else {
+                        $('#toTop').fadeOut();
+                    }
+                });
+                $('#toTop').click(function() {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+            });
+         });
+         
+         $(document).ready(function(){
+         $(".lm-txt").each(function(i){
+         len=$(this).text().length;
+         if(len>90){
+          $(this).text($(this).text().substr(0,90)+'...');
+         }
+         });
+         });
+      </script>
+   </head>
+   <body class="st-effect-3">
+      <a href="/" id="toTop"><i class="fa fa-chevron-up"></i></a>
+      <div class="loginRegister"></div>
+      <basis core="call" file="header.inc"/>
+      <main>
+         <div class="breadcrumbs">
+            <div class="bc-main">
+               <ul>
+                  <li><a href="/">خانه</a></li>
+                  <basis core="print" datamembername="show.navigation">
+                     <face filter="link is null and parentcatid<>48048">
+                        <li><a href="article-list.bc?catid=@parentcatid">@title</a></li>
+                     </face>
+                     <face filter="parentcatid<>48048" >
+                        <li><a href="@link">@title</a></li>
+                     </face>
+                  </basis>
+                  <basis core="view" datamembername="db.view">
+                     <face filter="typeid=150">
+                        <li> <span>@text</span> </li>
+                     </face>
+                  </basis>
+               </ul>
+            </div>
+         </div>
+         <div id="show">
+              <basis core="print" datamembername="db.artdata">
+                <face>
+                  <div class="bc-main" itemprop="@vocabulary" itemscope itemtype="@link">
+                </face>
+              </basis>
+               <div class="main-title">
+                  <basis core="print" datamembername="db.view">
+                     <face filter="typeid=150">
+                        <h1 itemprop="@vocabulary">@text</h1>
+                     </face>
+                  </basis>
+                  <div class="title-separator-outer">
+                     <div class="title-separator"></div>
+                  </div>
+               </div>
+               <div class="article-list show">
+                  <div class="right">
+                     <div class="item-caption">
+                        <basis core="print" datamembername="db.view">
+                           <face filter="typeid not in(159,150,160,161,162)" replace="true">
+                              <h2 itemprop="@vocabulary">  @text </h2>
+                              <p itemprop="@vocabulary"> @largetext  </p>
+                           </face>
+                           <replace tagname="text"> <a style="color:@val4; font-size:@val5; font-weight:@val6; font-style:@val7" href="@val3">@val2</a> </replace>
+                           <replace tagname="link"> <a style="color:@val4;" href="@val3">@val2</a> </replace>
+                           <replace tagname="img"> <img class="replace-art" src="/@val2" alt="@val3" style="display:block;margin:15px auto"> </replace>
+                        </basis>
+                     </div>
+                     <div id="gallery-art">
+                        <div class="gallery-item">
+                           <div id="Gallery-box">
+                              <div class="Border"></div>
+                              <div id="Gallery">
+                                 <basis core="print" datamembername="db.gallery">
+                                    <face filter="RowNumber=1">
+                                       <div id="Full-Gallery"><img src="/@largeIMG" width="820" height="480" alt="@name"></div>
+                                    </face>
+                                 </basis>
+                                 <basis core="print" datamembername="db.gallery">
+                                    <layout>
+                                       <div id="Thumb-Gallery">
+                                          <div id="main">
+                                             <ul class="gallery clearfix">
+                                                @Child
+                                                <div class="clr"></div>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                    </layout>
+                                    <face>
+                                       <li> <a href="/@largeIMG" rel="prettyPhoto[gallery1]"> <img src="/@largeIMG" width="80" height="50" alt="" /></a></li>
+                                    </face>
+                                 </basis>
+                                 <div class="clr"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="left">
+                     <div class="re-tours">
+                        <div class="title">
+                           <h3>تورهای مرتبط</h3>
+                        </div>
+                        <div class="clr"></div>
+                        <basis core="list" datamembername="db.related-tour">
+                           <layout>
+                              @child
+                           </layout>
+                           <else-layout>
+                              <p class="else-layout">در حال حاظر تور مرتبط وجود ندارد</p>
+                           </else-layout>
+                           <face filter="link is null">
+                           <face filter="link is null">
+                              <div class="col-tour">
+                                 <div class="inner-tour">
+                                    <div class="img-tour">
+                                       <a href="/@tour.bc?id=@id"><img src="/@type_159" width="370" height="220" alt="@title"></a>
+                                    </div>
+                                    <div class="desc-tour">
+                                       <a href="/@tour.bc?id=@id"> @title</a>
+                                       <p class="tour-txt">شروع قیمت از :<span>@prp_8181</span></p>
+                                       <a class="button">
+                                          <div class="sim-button button4" data-text="مشاهده و خرید">
+                                             <span>مشاهده و خرید</span>
+                                          </div>
+                                       </a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </face>
+                           <face>
+                              <div class="col-tour">
+                                 <div class="inner-tour">
+                                    <div class="img-tour">
+                                       <a href="/@link"><img src="/@type_159" width="370" height="220" alt="@title"></a>
+                                    </div>
+                                    <div class="desc-tour">
+                                       <a href="/@link"> @title</a>
+                                       <p class="tour-txt">شروع قیمت از :<span>@prp_8181</span></p>
+                                       <a class="button">
+                                          <div class="sim-button button4" data-text="مشاهده و خرید">
+                                             <span>مشاهده و خرید</span>
+                                          </div>
+                                       </a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </face>
+                        </basis>
+                     </div>
+                     <div class="re-articles">
+                        <div class="title">
+                           <h4 >مقالات مرتبط</h4>
+                        </div>
+                        <div class="clr"></div>
+                        <basis core="list" datamembername="db.related-article">
+                           <layout>
+                              @child
+                           </layout>
+                           <else-layout>
+                              <p class="else-layout">در حال حاظر مقاله مرتبط وجود ندارد</p>
+                           </else-layout>
+                           <face filter="link is null" >
+                              <div class="col-artlist">
+                                 <a href="/article.bc?id=@id">
+                                    <div class="inner-artlist">
+                                       <div class="img-artlist">
+                                          <img src="/@type_159">
+                                       </div>
+                                       <div class="desc-artlist">
+                                          <h2>@title</h2>
+                                          <p class="lm-txt">@prp_7244</p>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                           </face>
+                           <face>
+                              <div class="col-artlist">
+                                 <a href="/@link">
+                                    <div class="inner-artlist">
+                                       <div class="img-artlist">
+                                          <img src="/@type_159">
+                                       </div>
+                                       <div class="desc-artlist">
+                                          <h2>@title</h2>
+                                          <p class="lm-txt">@prp_7244</p>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                           </face>
+                        </basis>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+<basis core="call" file="footer.inc"/>
+<script type='text/javascript' src="js/jquery.min.js"></script>
+<script type='text/javascript' src="js/jquery.navgoco.js"></script>
+<script type='text/javascript' src="js/off-canvas.js"></script>
+<!--js about menu-->
+<script type="text/javascript" src="js/gallery.js"></script> <!--js about gallery--> 
+<script type="text/javascript">
+$(function(){
+  $("#opinionForm").on("submit", function(event) {
+    $('.loading').show();
+    event.preventDefault();
+    $.ajax({
+      url: "/OpinionAction.bc",
+      type: "post",
+      data: $(this).serialize(),
+      success: function(response) {
+        $(".loading").hide(); 
+        $(".SecurityCodeLeft a").load("/OpinionCaptcha.bc")
+        $(".OpinionResult").empty().html(response);
+        $(".opinionResult-Box,.opinionResult").fadeIn()
+      }
+     });
+  });
+});
+               
+$(document).ready(function(){
+  $("a[rel^='prettyPhoto']").prettyPhoto();
+});
+         
+$(function(){$(".Book-Schema-Text").each(function(i) {
+len=$(this).text().length;if(len>500){$(this).text($(this).text().substr(0,500)+'...')} });});
+         
+$(function(){$(".ArticleList-txt").each(function(i) {
+len=$(this).text().length;if(len>260){$(this).text($(this).text().substr(0,260)+'...')} });});
+         
+$(".SecurityCodeLeft span").click(function(){ $(".SecurityCodeLeft a").load("/OpinionCaptcha.bc");})
+
+$(document).ready(function(){
+  let artTitle = $(".main-title h1").text();
+  $("#Gallery img").each(function(){
+    $(this).attr("alt",artTitle);
+  });
+});
+</script>
+</body>
+</html>

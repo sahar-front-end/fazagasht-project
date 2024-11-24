@@ -1,0 +1,225 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="18" name="db" usedforid="[##cms.query.catid##]">
+    <member name="scalar" type="scalar" typeid="150" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+    <member name="products" type="list" link="tour.bc" propertyid="8181,8076,8077,10000504" perpage="9"
+        pageno="[##cms.query.page|(1)##]" typeid="159" order="ord" />
+    <member name="paging" type="list" request="paging" count="3" parentname="products" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
+    <member name="airline" type="list" request="spelist" />
+</basis>
+<basis core="inlinesource" name="joining">
+    <member name="list" lefttblcol="db.products.prp_10000504" righttblcol="list.airline.name" format="join"
+        jointype="leftjoin" />
+</basis>
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="BasisCore" />
+    <meta name="description" content="[##cms.seo.description##]" />
+    <meta name="keywords" content="فضا گشت | رزرواسیون آنلاین" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[##cms.seo.title##]">
+    <meta property="og:image" content="[##cms.cms.cdn##]/images/logo.png" />
+    <meta property="og:image:width" content="250" />
+    <meta property="og:image:height" content="65" />
+    <meta property="og:image:secure_url" content="[##cms.cms.cdn##]/images/logo.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="[##cms.seo.title##]" />
+    <link rel="canonical" href="[##cms.request.host##]/[##cms.request.url##]" />
+    <link rel="apple-touch-icon" sizes="" href="[##cms.cms.cdn##]/images/logo.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="[##cms.cms.cdn##]/css/output.css" />
+    <title>[##cms.seo.title##]</title>
+    <style>
+        #paging {
+            direction: ltr;
+            text-align: center;
+
+        }
+
+        #paging a {
+            height: 30px;
+            width: 30px;
+            display: inline-block;
+            line-height: 30px;
+            border-radius: 3px;
+            border: 1px solid #4e4c4a;
+            margin: 0 0.3em;
+        }
+
+        #paging a:hover {
+            background: #4e4c4a;
+            color: #fff;
+        }
+
+        #paging a.active-page {
+            background: #4e4c4a;
+            color: #fff;
+        }
+
+        .toggle-page {
+            vertical-align: middle;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="font-farsi">
+        <basis core="call" file="header.inc" />
+        <div>
+            <div class="loginRegister"></div>
+            <div class="tour-list-container mb-12 max-sm:my-0">
+                <div class="w-300 m-0-auto rtl-direction py-8 max-xl:w-5-5">
+                    <div class="title mb-12 max-sm:mb-6 max-sm:text-center">
+                        <basis core="print" datamembername="db.scalar">
+                            <face>
+                                <h1 class="font-bold text-xl">@Column1</span></h1>
+                            </face>
+                        </basis>
+                    </div>
+                    <basis core="list" datamembername="joining.list">
+                        <layout>
+                            <div class="item-tour">
+                                <div class="item-tour-list flex flex-wrap text-sm">
+                                    @child
+                                </div>
+                            </div>
+                        </layout>
+                        <face filter="link is null">
+                            <div class="col-tour relative">
+                                <div class="item-card relative">
+                                    <a href="/tour.bc?id=@db.products.id&lid=1" class="color_grey_">
+                                        <div class="item-card-img relative">
+                                            <img src="[##cms.cms.cdn##]/@db.products.type_159" class="cover-image lozad"
+                                                alt="@db.products.title" width="290" height="310" />
+                                        </div>
+                                        <div class="item-card-body text-right dir-rtl">
+                                            <h3 class="font_17 title">@db.products.title</h3>
+                                            <div class="item-tour-price font_12"><span>شروع قیمت ها از :</span>
+                                                <p class="font-weight font_16 slice color_1">@db.products.prp_8181</p>
+                                            </div>
+                                            <div class="item-card-body-middle rounded-md">
+                                                <div class="font_14 text-muted text-limit-tour"><i
+                                                        class="fa fa-clock"></i><span
+                                                        class="slice">@db.products.prp_8076</span></div>
+                                                <div class="font_14 text-muted"><i
+                                                        class="fa fa-calendar-alt"></i><span>@db.products.prp_8077</span>
+                                                </div>
+                                                <div class="clr"></div>
+                                            </div>
+                                        </div>
+                                        <div class="item-card-footer dir-rtl">
+                                            <div class="float_right"> <img src="@list.airline.pic"
+                                                    alt="@db.products.prp_10000504" width="100" height="40" /></div>
+                                            <button type="button" class="rounded-md float_left">مشاهده جزئیات</button>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </face>
+                        <face>
+                            <div class="col-tour relative">
+                                <div class="item-card relative">
+                                    <a href="/@db.products.link" class="color_grey_">
+                                        <div class="item-card-img relative">
+                                            <img src="[##cms.cms.cdn##]/@db.products.type_159" class="cover-image lozad"
+                                                alt="@db.products.title" width="290" height="310" />
+                                        </div>
+                                        <div class="item-card-body text-right dir-rtl">
+                                            <h3 class="font_17 title">@db.products.title</h3>
+                                            <div class="item-tour-price font_12"><span>شروع قیمت ها از :</span>
+                                                <p class="font-weight font_16 slice color_1">@db.products.prp_8181</p>
+                                            </div>
+                                            <div class="item-card-body-middle rounded-md">
+                                                <div class="font_14 text-muted text-limit-tour"><i
+                                                        class="fa fa-clock"></i><span
+                                                        class="slice">@db.products.prp_8076</span></div>
+                                                <div class="font_14 text-muted"><i
+                                                        class="fa fa-calendar-alt"></i><span>@db.products.prp_8077</span>
+                                                </div>
+                                                <div class="clr"></div>
+                                            </div>
+                                        </div>
+                                        <div class="item-card-footer dir-rtl">
+                                            <div class="float_right"> <img src="@list.airline.pic"
+                                                    alt="@db.products.prp_10000504" width="100" height="40" /></div>
+                                            <button type="button" class="rounded-md float_left">مشاهده جزئیات</button>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </face>
+                    </basis>
+                    <div id="paging">
+                        <p class="prev-page  toggle-page" onclick="togglePage('prev')"><svg
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                            </svg>
+                        </p>
+
+                        <basis core="print" datamembername="db.paging">
+                            <face filter="sta='no' and page=1 and MAX(RowNumber)>1"><a
+                                    href="/tour-list.bc?catid=[##cms.query.catid##]&page=@page" class="page-no"
+                                    data-page="@page">@page</a></face>
+                            <face filter="sta='no' and page>1 and MAX(RowNumber)>1"><a
+                                    href="/tour-list.bc?catid=[##cms.query.catid##]&page=@page" class="page-no"
+                                    data-page="@page">@page</a></face>
+                        </basis>
+
+                        <p class="next-page toggle-page" onclick="togglePage('next')"><svg
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.basiscore.net/basisfly.com/js/reservation_js_library.js"
+            type="text/javascript"></script>
+        <script src="https://cdn.basiscore.net/basisfly.com/js/reservation_lozad.min.js"
+            type="text/javascript"></script>
+        <basis core="call" file="footer.inc" />
+        <script>
+            if (document.querySelectorAll(".page-no").length > 0) {
+                document.querySelectorAll(".toggle-page").forEach(element => {
+                    element.style.display = 'inline-block'
+                })
+            }
+            document.querySelectorAll(".page-no").forEach(element => {
+                if (element.getAttribute("data-page")) {
+                    if (element.getAttribute("data-page") == '[##cms.query.page|(1)##]') {
+                        element.classList.add("active-page")
+                    }
+                }
+            });
+            function togglePage(type) {
+                if (type == 'next') {
+                    window.location = `/tour-list.bc?catid=[##cms.query.catid##]&page=${parseInt(document.querySelector(".active-page").dataset.page) + 1}`
+                } else {
+                    window.location = `/tour-list.bc?catid=[##cms.query.catid##]&page=${parseInt(document.querySelector(".active-page").dataset.page) - 1}`
+                }
+            }
+
+        </script>
+    </main>
+</body>
+
+</html>
